@@ -1,0 +1,10 @@
+INTERVAL=10
+DEVPATH=hwmon0=devices/virtual/thermal/thermal_zone0 hwmon2=devices/platform/pwm-fan
+DEVNAME=hwmon0=cpu_thermal hwmon2=pwmfan
+FCTEMPS=hwmon2/pwm1=hwmon0/temp1_input
+MINTEMP=hwmon2/pwm1=50
+MAXTEMP=hwmon2/pwm1=60
+MINSTART=hwmon2/pwm1=20
+MINSTOP=hwmon2/pwm1=28
+MINPWM=hwmon2/pwm1=0
+MAXPWM=hwmon2/pwm1=255

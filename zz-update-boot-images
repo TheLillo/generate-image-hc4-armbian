@@ -1,0 +1,24 @@
+#! /bin/sh
+set -e
+
+MOUNTPOINT=/mnt
+
+set -- $DEB_MAINT_PARAMS
+mode="${1#\'}"
+mode="${mode%\'}"
+case $0:$mode in
+    # Only run on postinst configure and postrm remove, to avoid wasting
+    */postinst.d/*:|*/postinst.d/*:configure|*/postrm.d/*:|*/postrm.d/*:remove)
+	mount -o sync,rw /dev/mmcblk0p1 "$MOUNTPOINT" 2>/dev/null || true
+	rm -rf "$MOUNTPOINT/uImage"
+	rm -rf "$MOUNTPOINT/uInitrd"
+	rm -rf "$MOUNTPOINT/dtb"
+
+	cp -Lr "/boot/dtb" "$MOUNTPOINT/dtb"
+	cp -Lr "/boot/uImage" "$MOUNTPOINT/uImage"
+	cp -Lr "/boot/uInitrd" "$MOUNTPOINT/uInitrd"
+	umount "$MOUNTPOINT"
+	;;
+esac
+
+exit 0
