@@ -21,7 +21,7 @@ cleanup() {
 		while read DEV; do
 			sudo losetup -d "$DEV"
 		done
-
+	rm -f "$TARGET_ARMBIAN"
 	set -e
 }
 
