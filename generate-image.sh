@@ -3,7 +3,6 @@
 set -eu
 
 TARGET_ARMBIAN="${1:-Jammy_edge}"
-echo $TARGET_ARMBIAN
 SECTOR_SIZE=512
 BOOT_START=2048
 IMG=odroid-hc4.img
