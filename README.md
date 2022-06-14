@@ -2,14 +2,18 @@
 
 ## What does this project do?
 
-All the project is about to get Armbian Jammy-edge on Odroid HC4 without erase petitboot partition on your board.
+All the project is about to get Armbian (Tested on version Jammy-edge) on Odroid HC4 without erase petitboot partition on your board.
+
+Otherwise you shall wipe your SPI boot partition and erase the default bootloader of the board.
 
 ### How it works ?
 
-All you need to do is run `generate-image.sh` and you will generate the new target image.
+All you need to do is run `generate-image.sh` as root (for instance using `sudo ./generate-image.sh`) and it will generate the new target image.
 
-To mount partition you need to be administrator of your machine.
+After that you will have `odroid-hc4.img` file which you just need to write on your SD card, example:
 
-After that you will have odroid-hc4.img file which you just need to write on your SD card, example:
+```bash
+sudo dd if=odroid-hc4.img of=/dev/mmcblk0 conv=fsync status=progress
+```
 
-`# dd if=odroid-hc4.img of=/dev/sdX conv=fsync status=progress`
+Remember to change `/dev/mmcblk0` with the correct target device!
