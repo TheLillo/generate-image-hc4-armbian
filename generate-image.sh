@@ -41,7 +41,7 @@ get_startup() {
 	cp -Lr "$STARTUP_MNTPOINT"/boot/{dtb,uImage,uInitrd} .
 	# Inject update-bootloader
 	cp -rav zz-update-boot-images "$STARTUP_MNTPOINT"/etc/kernel/postinst.d/zz-update-boot-images
-	chmod +x zz-update-boot-images "$STARTUP_MNTPOINT"/etc/kernel/postinst.d/zz-update-boot-images
+	chmod u+x "$STARTUP_MNTPOINT"/etc/kernel/postinst.d/zz-update-boot-images
 	# Inject fancontrol
 	cp -rav fancontrol "$STARTUP_MNTPOINT"/etc/fancontrol
 	sudo umount "$STARTUP_MNTPOINT"
