@@ -2,7 +2,7 @@
 
 ## What does this project do?
 
-All the project is about to get Armbian (Tested on version Jammy-edge) on Odroid HC4 without erase petitboot partition on your board.
+All the project is about to get Armbian (Tested on version Jammy-current) on Odroid HC4 without erase petitboot partition on your board.
 
 Otherwise you shall wipe your SPI boot partition and erase the default bootloader of the board.
 

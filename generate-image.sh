@@ -2,7 +2,7 @@
 
 set -eu
 
-TARGET_ARMBIAN="${1:-Jammy_edge}"
+TARGET_ARMBIAN="${1:-Jammy_current}"
 SECTOR_SIZE=512
 BOOT_START=2048
 IMG=odroid-hc4.img
