@@ -38,7 +38,9 @@ get_startup() {
 
 	sudo mount -o "offset=$(( $START * 512 ))" "$1" "$STARTUP_MNTPOINT"
 	# Copy Kernel, DTB and ramdisk
-	cp -Lr "$STARTUP_MNTPOINT"/boot/{dtb,uImage,uInitrd} .
+	for T in dtb uImage uInitrd ; do
+		cp -Lr "$STARTUP_MNTPOINT/boot/$T" .
+	done
 	# Inject update-bootloader
 	cp -rav zz-update-boot-images "$STARTUP_MNTPOINT"/etc/kernel/postinst.d/zz-update-boot-images
 	chmod u+x "$STARTUP_MNTPOINT"/etc/kernel/postinst.d/zz-update-boot-images
