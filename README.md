@@ -8,6 +8,8 @@ Otherwise you shall wipe your SPI boot partition and erase the default bootloade
 
 ### How it works ?
 
+The scripts exploit `jq` to work, you need to install it. For example in debian based distro `sudo apt install jq`
+
 All you need to do is run `generate-image.sh` as root (for instance using `sudo ./generate-image.sh`) and it will generate the new target image.
 
 After that you will have `odroid-hc4.img` file which you just need to write on your SD card, example:
