@@ -38,7 +38,7 @@ get_startup() {
 
 	sudo mount -o "offset=$(( $START * 512 ))" "$1" "$STARTUP_MNTPOINT"
 	# Copy Kernel, DTB and ramdisk
-	for T in dtb uImage uInitrd ; do
+	for T in dtb Image uInitrd ; do
 		cp -Lr "$STARTUP_MNTPOINT/boot/$T" .
 	done
 	# Inject update-bootloader
@@ -126,7 +126,7 @@ sudo mount "$DEV" "$ROOT_MNTPOINT"
 
 # Chainload Linux Bootloader
 sudo cp -r boot.ini config.ini "$ROOT_MNTPOINT/"
-sudo cp -r uImage uInitrd dtb "$ROOT_MNTPOINT/"
+sudo cp -r Image uInitrd dtb "$ROOT_MNTPOINT/"
 
 sudo umount "$ROOT_MNTPOINT"
 
