@@ -8,7 +8,10 @@ Otherwise you shall wipe your SPI boot partition and erase the default bootloade
 
 ### How it works ?
 
-The scripts exploit `jq` to work, you need to install it. For example in debian based distro `sudo apt install jq`
+The scripts exploit `jq` to work, you need to install it. For example we tested the script in Debian and so to install the package:
+```bash
+sudo apt install jq
+```
 
 All you need to do is run `generate-image.sh` as root (for instance using `sudo ./generate-image.sh`) and it will generate the new target image.
 
