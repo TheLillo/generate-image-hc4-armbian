@@ -8,9 +8,9 @@ Otherwise you shall wipe your SPI boot partition and erase the default bootloade
 
 ### How it works ?
 
-The scripts exploit `jq` to work, you need to install it. For example we tested the script in Debian and so to install the package:
+The scripts exploit `jq` to work and `mkfs.fat`, you need to install it. For example we tested the script in Debian and so to install the package:
 ```bash
-sudo apt install jq
+sudo apt install jq dosfstools
 ```
 
 To generate the new target image, simply run the generate-image.sh script as root from within the project folder. For example, you can use the following command: 
