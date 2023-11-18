@@ -15,7 +15,7 @@ sudo apt install jq
 
 To generate the new target image, simply run the generate-image.sh script as root from within the project folder. For example, you can use the following command: 
 ```bash
-sudo ./generate-image.sh.
+sudo ./generate-image.sh
 ```
 
 After that you will have `odroid-hc4.img` file which you just need to write on your SD card, example:
