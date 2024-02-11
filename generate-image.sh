@@ -2,7 +2,8 @@
 
 set -eu
 
-TARGET_ARMBIAN="${1:-Jammy_current}"
+TARGET_ARMBIAN="${1:-Bookworm_current}"
+ARMBIAN_DOWNLOAD_URL="https://github.com/armbian/community/releases/download/24.2.0-trunk.540/Armbian_community_24.2.0-trunk.540_Odroidhc4_bookworm_current_6.6.16.img.xz"
 SECTOR_SIZE=512
 BOOT_START=2048
 IMG=odroid-hc4.img
@@ -27,7 +28,7 @@ cleanup() {
 
 get_armbian() {
 	if ! test -f "$1"; then
-		wget -O "$1.xz" -c "https://redirect.armbian.com/region/EU/odroidhc4/$1" 
+		wget -O "$1.xz" -c "$ARMBIAN_DOWNLOAD_URL" 
 		xz -d "$1.xz"
 	fi
 }
